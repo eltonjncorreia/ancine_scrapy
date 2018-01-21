@@ -26,17 +26,21 @@ class AncineSpider(scrapy.Spider):
     def detail(self, response):
         self.log("estou na funcao "+response.url)
 
-        title = response.xpath('//*[@id="node-23823"]/div[1]/h2/text()').extract_first()
-        texto_sinopse = response.xpath('.//tr/td/b/text()').extract_first()
-        sinopse = response.xpath('.//tr/td/b/text()').extract_first()
-        texto_producao = response.xpath('.//td[contains(@class, "label")]/text()').extract_first()
-        producao = response.xpath('//td[2]/div/div/div/text()').extract_first()
+        title = response.xpath(
+            './/div[contains(@class, "content-header")]//h2/text()'
+        ).extract_first()
+
+        sinopse = response.xpath(
+            './/tr/td/b/text()'
+        ).extract_first()
+
+        producao = response.xpath(
+            './/td[2]/div/div/div/text()'
+        ).extract_first()
 
         yield {
             'title': title,
-            'texto_sinopse': texto_sinopse,
             'sinopse': sinopse,
-            'texto_producao': texto_producao,
             'producao': producao,
         }
 
