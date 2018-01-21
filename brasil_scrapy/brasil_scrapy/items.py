@@ -11,4 +11,5 @@ import scrapy
 class BrasilScrapyItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass
+    scrapy.Item.log('----- capturado _-----')
+
