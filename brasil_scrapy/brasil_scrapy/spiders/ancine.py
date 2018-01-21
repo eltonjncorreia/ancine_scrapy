@@ -19,13 +19,16 @@ class AncineSpider(scrapy.Spider):
 
             yield scrapy.Request('https://www.ancine.gov.br{}'.format(urls), callback=self.detail)
 
-        if urls:
-            yield scrapy.Request('https://www.ancine.gov.br{}'.format(urls), callback=self.parse)
+        next_page = response.xpath(
+            '//*[@id="conteudo"]/div//ul/li//a/@href'
+        ).extract_first()
+
+        if next_page:
+            yield scrapy.Request('https://www.ancine.gov.br{}'.format(next_page), callback=self.parse)
 
 
     def detail(self, response):
-        self.log("estou na funcao "+response.url)
-
+        self.log(response.url)
         title = response.xpath(
             './/div[contains(@class, "content-header")]//h2/text()'
         ).extract_first()

@@ -6,9 +6,9 @@ import pymongo
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 
-# class BrasilScrapyPipeline(object):
-#     def process_item(self, item, spider):
-#         return item
+class BrasilScrapyPipeline(object):
+    def process_item(self, item, spider):
+        return item
 
 class MongoPipeline(object):
 
