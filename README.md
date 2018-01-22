@@ -12,8 +12,7 @@ https://www.ancine.gov.br/pt-br/brasil-nas-telas
 ```
 
 ### Os dados capturados:
-exemplo de dados armazenado em .csv está no
-caminho: ###### brasil_scrapy/ancine.csv
+
 
 ```bash
 title
@@ -22,6 +21,13 @@ produção
 genero
 data de lancamento
 image
+```
+
+###### exemplo de dados armazenado em .csv está no
+caminho:
+
+``bash
+https://github.com/eltonjncorreia/ancine_scrapy/blob/master/brasil_scrapy/ancine.csv
 ```
 
 ### como usar o webcrawler
