@@ -28,6 +28,7 @@ cd brasil_scrapy
 ```
 
 ### running webcrawler
+this crawler stores the data in a cluster, Mongodb - https://cloud.mongodb.com/
 
 ```console
 
@@ -35,4 +36,12 @@ scrapy crawl ancine
 
 ```
 
+### to run and store in files
+replace the file.txt with your
+
+```console
+
+scrapy crawl ancine -o file.txt
+
+```
 

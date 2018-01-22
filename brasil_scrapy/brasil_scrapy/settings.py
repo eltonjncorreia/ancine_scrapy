@@ -89,7 +89,9 @@ ITEM_PIPELINES = {
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
-# MONGO_URI='localhost'
+#MONGO_URI='localhost'
+
+
 MONGO_URI="mongodb://ancine:ancine@ancine-shard-00-00-rbtni.mongodb.net:27017," \
           "ancine-shard-00-01-rbtni.mongodb.net:27017," \
           "ancine-shard-00-02-rbtni.mongodb.net:27017/" \
