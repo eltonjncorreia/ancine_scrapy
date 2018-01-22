@@ -1,6 +1,7 @@
-# Ancine - Agência Nacional do Cinema
+# Scrapy Ancine v1
+### Python 3, Scrapy 1.5, Pymongo 3.4
 
-### Filmes brasileiros
+### Filmes brasileiros - Agência Nacional do Cinema
 Lista de filmes extraido do site Agência Nacional do Cinema
 
 ### link da pagina
@@ -30,7 +31,7 @@ https://github.com/eltonjncorreia/ancine_scrapy/blob/master/brasil_scrapy/ancine
 ### como usar o webcrawler
 
 é recomendado usar um ambiente virtual, porém é possivel
-ignorar os passos
+ignorar os passos se voçê já souber o que está fazendo.
 
 ```bash
 
