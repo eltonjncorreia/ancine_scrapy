@@ -22,12 +22,10 @@ data de lancamento
 image
 ```
 
-#### exemplo de dados armazenado em .csv está no
-caminho:
+#### link para exemplo de dados armazenado em .csv
 
-```bash
 https://github.com/eltonjncorreia/ancine_scrapy/blob/master/brasil_scrapy/ancine.csv
-```
+
 
 ### como usar o webcrawler
 
