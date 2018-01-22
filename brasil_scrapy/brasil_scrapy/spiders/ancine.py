@@ -41,6 +41,17 @@ class AncineSpider(scrapy.Spider):
                 'sinopse': response.css(
                     'div.field-item p::text').extract_first(),
 
+                'produção': response.css(
+                    'div.field-name-field-produtora div::text'
+                ).extract_first(),
+
+                'genero': response.css(
+                    'div.field-name-field-genero div::text'
+                ).extract_first(),
+
+                'data-lancamento': response.css(
+                    'span.date-display-single::text').extract_first(),
+
                 'image': response.xpath(
                     './/div//table//a/img/@src').extract_first()
 
