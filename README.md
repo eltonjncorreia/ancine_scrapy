@@ -11,8 +11,7 @@ https://www.ancine.gov.br/pt-br/brasil-nas-telas
 
 ```
 
-### Os dados capturados:
-
+### Os dados capturados são:
 
 ```bash
 title
@@ -23,10 +22,10 @@ data de lancamento
 image
 ```
 
-###### exemplo de dados armazenado em .csv está no
+#### exemplo de dados armazenado em .csv está no
 caminho:
 
-``bash
+```bash
 https://github.com/eltonjncorreia/ancine_scrapy/blob/master/brasil_scrapy/ancine.csv
 ```
 
