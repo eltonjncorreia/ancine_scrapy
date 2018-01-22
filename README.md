@@ -3,7 +3,7 @@
 ### Filmes brasileiros - Agência Nacional do Cinema
 Lista de filmes extraido do site Agência Nacional do Cinema
 
-### link da pagina
+### Link da pagina
 
 ```bash
 
@@ -22,14 +22,14 @@ data de lancamento
 image
 ```
 
-#### link para exemplo de dados armazenado em .csv
+#### Link para exemplo de dados armazenado em .csv
 
 https://github.com/eltonjncorreia/ancine_scrapy/blob/master/brasil_scrapy/ancine.csv
 
 ### Está sendo usado
 Python 3, Scrapy 1.5, Pymongo 3.4
 
-### como usar o webcrawler
+### Como usar o webcrawler
 
 é recomendado usar um ambiente virtual, porém é possivel
 ignorar os passos se voçê já souber o que está fazendo.
