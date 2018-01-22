@@ -1,11 +1,9 @@
 # Ancine - Agência Nacional do Cinema
 
-###  Brazilian movies - Filmes brasileiros
+### Filmes brasileiros
+Lista de filmes extraido do site Agência Nacional do Cinema
 
-##### the movies are Listed on the page of the Agência Nacional do Cinema
-####  Lista de filmes extraido do site Agência Nacional do Cinema
-
-## page link - link da pagina
+### link da pagina
 
 ```bash
 
@@ -13,9 +11,23 @@ https://www.ancine.gov.br/pt-br/brasil-nas-telas
 
 ```
 
-## with using the project  - como usar o webcrawler
-recommended to create a virtual environment,
-but can be ignored if you already know what you are doing
+### Os dados capturados:
+exemplo de dados armazenado em .csv está no
+caminho: ###### brasil_scrapy/ancine.csv
+
+```bash
+title
+sinopse
+produção
+genero
+data de lancamento
+image
+```
+
+### como usar o webcrawler
+
+é recomendado usar um ambiente virtual, porém é possivel
+ignorar os passos
 
 ```bash
 
@@ -28,9 +40,9 @@ cd brasil_scrapy
 
 ```
 
-### running webcrawler - rodando o webcrawler
-#this crawler stores the data in a cluster, Mongodb - https://cloud.mongodb.com/
-Este crawler armazena os dados no Mongodb Atlas
+### Rodando o webcrawler
+
+Este crawler armazena os dados no Mongodb Atlas - https://cloud.mongodb.com/
 
 ```console
 
@@ -38,10 +50,9 @@ scrapy crawl ancine
 
 ```
 
-### to run and store in files
-replace the file.txt with your
+### Para executar e armazenar em arquivos
 
-# executar o crawler e armazenar os dados em arquivos tipo :"file.txt"
+Executar o crawler e armazenar os dados em arquivos tipo :"file.txt"
 troque "file.txt" pelo nome de sua preferência.
 
 
