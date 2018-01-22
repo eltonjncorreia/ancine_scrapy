@@ -19,7 +19,7 @@ NEWSPIDER_MODULE = 'brasil_scrapy.spiders'
 #USER_AGENT = 'brasil_scrapy (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = False
+ROBOTSTXT_OBEY = True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -64,9 +64,9 @@ ROBOTSTXT_OBEY = False
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-# ITEM_PIPELINES = {
-#     'brasil_scrapy.pipelines.BrasilScrapyPipeline': 300,
-# }
+ITEM_PIPELINES = {
+    'brasil_scrapy.pipelines.MongoPipeline': 100,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
@@ -89,6 +89,13 @@ ROBOTSTXT_OBEY = False
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
+# MONGO_URI='localhost'
+MONGO_URI="mongodb://ancine:ancine@ancine-shard-00-00-rbtni.mongodb.net:27017," \
+          "ancine-shard-00-01-rbtni.mongodb.net:27017," \
+          "ancine-shard-00-02-rbtni.mongodb.net:27017/" \
+          "admin?ssl=true&replicaSet=ancine-shard-0&authSource=admin"
 
-MONGO_URI='localhost'
 MONGO_DATABASE='ancine'
+
+
+
