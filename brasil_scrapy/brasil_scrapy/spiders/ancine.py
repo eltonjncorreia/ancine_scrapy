@@ -21,12 +21,11 @@ class AncineSpider(scrapy.Spider):
                 yield scrapy.Request('https://www.ancine.gov.br{}'.format(next_page), callback=self.parse)
 
     def detail(self, response):
+
         if response.css('div.field-item p::text').extract_first() is not None:
             sinopse = response.css('div.field-item p::text').extract_first()
         else:
             sinopse = response.css('div.field-item::text').extract_first()
-
-
 
         yield {
             'title': response.css('div.content-header h2::text').extract_first(),
