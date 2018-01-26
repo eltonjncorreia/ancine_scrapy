@@ -1,58 +1,44 @@
-# -*- coding: utf-8 -*-
 import scrapy
 
 
 class AncineSpider(scrapy.Spider):
-    # spider's name
     name = 'ancine'
-    # domain
+
     allowed_domains = ['ancine.gov.br']
-    # url name
+
     start_urls = ['https://www.ancine.gov.br/pt-br/brasil-nas-telas']
 
-    # parse
     def parse(self, response):
-        # is capturing the links, through the table
-        items = response.xpath('//*[@id="conteudo"]/div/div/table/tbody/tr')
+        for div in response.css('table tr'):
+            item = div.css('h3 a::attr(href)').extract_first()
 
-        # is capturing href and passes the captured items to the method
-        for item in items:
-            urls = item.xpath('.//td/h3/a/@href').extract_first()
+            yield scrapy.Request('https://www.ancine.gov.br{}'.format(item), callback=self.detail)
 
-            yield scrapy.Request('https://www.ancine.gov.br{}'.format(urls), callback=self.detail)
+        for div in response.css('div.item-list li'):
+            next_page = div.css('a::attr(href)').extract_first()
+            if next_page:
+                yield scrapy.Request('https://www.ancine.gov.br{}'.format(next_page),
+                                 callback=self.parse)
 
-        # advanced on page
-        next_page = response.xpath(
-                    '//*[@id="conteudo"]/div//ul/li//a/@href'
-        ).extract_first()
-
-        # takes only the href and goes to the proper function parse()
-        if next_page:
-            yield scrapy.Request('https://www.ancine.gov.br{}'.format(next_page), callback=self.parse)
-
-    # receives the response and displays the data
     def detail(self, response):
-            # was used .css, because I found it simpler and readable,
-            # but the xpath "" could be used.
-            yield {
-                'title': response.css(
-                    'div.content-header h2::text').extract_first(),
+        # yield {
+        #     'title': response.css('h3 a::text').extract_first(),
+        #     'sinopse': response.css('td.views-field p::text').extract_first(),
+        #     'producao': response.css('td b::text').extract_first()
+        # }
 
-                'sinopse': response.css(
-                    'div.field-item p::text').extract_first(),
+        yield {
+            'title': response.css('div.content-header h2::text').extract_first(),
 
-                'produção': response.css(
-                    'div.field-name-field-produtora div::text'
-                ).extract_first(),
+            'sinopse': response.css('div.field-item p::text').extract_first(),
 
-                'genero': response.css(
-                    'div.field-name-field-genero div::text'
-                ).extract_first(),
+            'produção': response.css('div.field-name-field-produtora div::text').extract_first(),
 
-                'data-lancamento': response.css(
-                    'span.date-display-single::text').extract_first(),
+            'genero': response.css('div.field-name-field-genero div::text').extract_first(),
 
-                'image': response.xpath(
-                    './/div//table//a/img/@src').extract_first()
+            'data-lancamento': response.css('span.date-display-single::text').extract_first(),
 
-            }
+            'image': response.css('table.tb-detalhes td img::attr(src)').extract_first()
+
+        }
+
